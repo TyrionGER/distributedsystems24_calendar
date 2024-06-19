@@ -1,0 +1,15 @@
+{
+    "name": "Calendar Project",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "backend",
+    "workspaceFolder": "/workspace",
+    "extensions": [
+      "vscjava.vscode-java-pack",
+      "esbenp.prettier-vscode"
+    ],
+    "settings": {
+      "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "postCreateCommand": "docker-compose up"
+  }
+  
