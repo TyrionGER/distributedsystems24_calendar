@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3.9' # Aktualisiert die Version auf eine neuere, da 'version' veraltet ist
 
 services:
   frontend:

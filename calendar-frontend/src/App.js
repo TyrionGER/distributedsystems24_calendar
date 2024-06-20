@@ -10,12 +10,12 @@ function App() {
   }, []);
 
   const fetchEvents = async () => {
-    const response = await axios.get('http://localhost:8080/events');
+    const response = await axios.get('http://calendar-backend:8080/events');
     setEvents(response.data);
   };
 
   const addEvent = async () => {
-    await axios.post('http://localhost:8080/events', { description: event });
+    await axios.post('http://calendar-backend:8080/events', { description: event });
     setEvent('');
     fetchEvents();
   };
