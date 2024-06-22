@@ -1,0 +1,4 @@
+FROM postgres:13
+ENV POSTGRES_DB=calendardb
+ENV POSTGRES_USER=admin
+ENV POSTGRES_PASSWORD=password
