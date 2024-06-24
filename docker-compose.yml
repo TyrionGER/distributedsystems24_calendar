@@ -4,15 +4,21 @@ services:
     build: ./frontend
     ports:
       - "3000:3000"
+    depends_on:
+      - backend
     networks:
       - app-network
-    environment:
-      - REACT_APP_API_URL=http://backend:8080
 
   backend:
     build: ./backend
     ports:
       - "8080:8080"
+    depends_on:
+      - database
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://database:5432/calendardb
+      - SPRING_DATASOURCE_USERNAME=admin
+      - SPRING_DATASOURCE_PASSWORD=password
     networks:
       - app-network
 
@@ -20,9 +26,14 @@ services:
     build: ./database
     ports:
       - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
     networks:
       - app-network
 
 networks:
   app-network:
     driver: bridge
+
+volumes:
+  pgdata:
